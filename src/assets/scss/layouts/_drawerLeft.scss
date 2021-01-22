@@ -1,0 +1,12 @@
+.drawerLeft {
+    .nav {
+        &__list {
+            color: color(primary) !important;
+            font-size: 15px !important;
+            font-style: normal;
+        }
+        &__list-icon {
+            font-size: 14px !important;
+        }
+    }
+}
