@@ -34,12 +34,10 @@
             
         </v-navigation-drawer>
         <v-main class="main">
-            <v-container
-            fill-height
-            >
-                <v-layout justify-center>
-                    <v-flex xs12 sm10 md8 lg8>
-                        
+            <v-container>
+                <v-layout justify-center class="mt-10">
+                    <v-flex xs12 sm10 md12 lg12 xl10>
+                        <router-view></router-view>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -59,53 +57,12 @@
             return {
                 drawer: false,
                 mini: false,
-                navs: [
-                    {
-                        header: 'MAIN',
-                        list: [
-                            {
-                                title: 'Dashboard',
-                                icon: 'mdi-view-dashboard',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'My Courses',
-                                icon: 'mdi-book',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'My Students',
-                                icon: 'mdi-school',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'Forum',
-                                icon: 'mdi-comment-alert',
-                                route: 'Dashboard'
-                            },
-                        ]
-                    },
-                    {
-                        header: 'ACCOUNT',
-                        list: [
-                            {
-                                title: 'Messages',
-                                icon: 'mdi-comment-alert',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'My Account',
-                                icon: 'mdi-account',
-                                route: 'Dashboard'
-                            },
-                        ]
-                    }
-                ]
+                auth: false,
             }
         },
         watch: {
             group() {
-            this.drawer = false;
+                this.drawer = false;
             },
         },
     }

@@ -18,5 +18,11 @@ module.exports = {
       title: 'Teacher Dashboard',
       chunks: ['chunk-vendors', 'chunk-common', 'teacher'],
     },
+    404: {
+      entry: './src/components/callback/main.js',
+      template: 'public/index.html',
+      title: '404',
+      chunks: ['chunk-vendors', 'chunk-common', '404'],
+    },
   },
 }

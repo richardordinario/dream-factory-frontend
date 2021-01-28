@@ -17,8 +17,8 @@
         <v-list dense rounded>
             <div v-for="nav in navs" :key="nav.id">
                 <v-subheader>{{nav.header}}</v-subheader>
-                <router-link v-for="(list, i) in nav.list" :key="i" :to="{ name: list.route}">
-                    <v-list-item>
+                <router-link style="text-decoration: none" v-for="(list, i) in nav.list" :key="i" :to="list.route">
+                    <v-list-item :class="$route.name == list.title ? 'main' : ''">
                         <v-list-item-icon>
                             <v-icon color="#08CDFF" :class="!mini ? 'nav__list-icon' : ''">{{list.icon}}</v-icon>
                         </v-list-item-icon>
@@ -35,54 +35,14 @@
 </template>
 
 <script>
+    import Navigation  from '../../../helpers/navigations/Teacher'
     export default {
         props: {
             mini: Boolean
         },
         data() {
             return {
-                navs: [
-                    {
-                        header: 'MAIN',
-                        list: [
-                            {
-                                title: 'Dashboard',
-                                icon: 'mdi-view-dashboard',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'My Courses',
-                                icon: 'mdi-book',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'My Students',
-                                icon: 'mdi-school',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'Forum',
-                                icon: 'mdi-comment-alert',
-                                route: 'Dashboard'
-                            },
-                        ]
-                    },
-                    {
-                        header: 'ACCOUNT',
-                        list: [
-                            {
-                                title: 'Messages',
-                                icon: 'mdi-comment-alert',
-                                route: 'Dashboard'
-                            },
-                            {
-                                title: 'My Account',
-                                icon: 'mdi-account',
-                                route: 'Dashboard'
-                            },
-                        ]
-                    }
-                ]
+                navs: Navigation
             }
         },
     }
