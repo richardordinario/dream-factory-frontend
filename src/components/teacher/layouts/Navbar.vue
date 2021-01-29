@@ -5,7 +5,7 @@
         class="btn white--text"
         :class="$vuetify.breakpoint.smAndDown ? '' : 'mr-16'" 
         color="#08CDFF" elevation="0">Tour me Around</v-btn>
-        <v-btn elevation="0" text large class="btn ">Logout</v-btn>
+        <v-btn elevation="0" text large @click="logout" class="btn">Logout</v-btn>
     </section>
 </template>
 
@@ -13,7 +13,13 @@
     export default {
         data:() => ({
             drawer: false,
+            provider: 'teachers'
         }),
+        methods: {
+            logout() {
+                this.$store.dispatch('auth/Logout', this.provider)
+            }
+        }
     }
 </script>
 

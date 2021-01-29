@@ -40,6 +40,7 @@
                             </v-toolbar-items>
                             <v-spacer></v-spacer>
                             <div class="hidden-md-and-down ma-5">
+                                <a href="/login">
                                 <v-btn
                                 large
                                 rounded
@@ -48,6 +49,8 @@
                                 width="130"
                                 class="mx-2"
                                 >Login</v-btn>
+                                </a>
+                                
                                 <v-btn
                                 large
                                 rounded

@@ -1,16 +1,13 @@
 import Vue from 'vue'
-import App from './App.vue'
+import Login from './Login.vue'
 import '@/registerServiceWorker'
 import vuetify from '@/plugins/vuetify';
 import '@/assets/scss/template/teacher/teacher.scss'
-import router from './router'
 import store from '../../store'
-
-Vue.config.productionTip = true
+Vue.config.productionTip = false
 
 new Vue({
-  store,
   vuetify,
-  router,
-  render: h => h(App)
+  store,
+  render: h => h(Login)
 }).$mount('#app')

@@ -1,5 +1,5 @@
 <template>
-    <v-app>
+    <v-app v-if="auth">
         <v-app-bar 
         app
         color="white"
@@ -58,7 +58,13 @@
                 drawer: false,
                 mini: false,
                 auth: false,
+                role: 'teachers'
             }
+        },
+        mounted() {
+            this.auth = localStorage.getItem('token')
+            //console.log(this.$store.getters['auth/getRole'])
+            this.$store.dispatch('auth/Authenticate', this.role)
         },
         watch: {
             group() {
