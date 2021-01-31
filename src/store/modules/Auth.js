@@ -2,10 +2,10 @@ import Api from '../../apis'
 
 const state = {
     auth: [],
-    role: ''
+    logged: false,
 }
 const getters = {
-    getRole: state => state.role
+    getLogged: state => state.logged
 }
 
 const actions = {
@@ -14,9 +14,7 @@ const actions = {
             const res = await Api.auth.login(payload)
             console.log(res)
             commit('SET_AUTH', res.data.user)
-            commit('SET_ROLE', payload.provider)
             localStorage.setItem('token', res.data.access_token)
-            localStorage.setItem('role', payload.provider)
             if(payload.provider == 'teachers') {
                 window.location.href = '/teacher/dashboard'
             }
@@ -40,12 +38,13 @@ const actions = {
             const res = await Api.auth.auth(payload)
             console.log(res)
             commit('SET_AUTH', res.data)
+            commit('SET_LOGGED', true)
         } catch (error) {
             console.log(error)
             if(error) {
+                commit('SET_LOGGED', false)
                 localStorage.removeItem('token')
-                localStorage.removeItem('role')
-                window.location.href = '/'
+                window.location.href = '/login'
             }
             
         }
@@ -57,9 +56,9 @@ const mutations = {
     SET_AUTH(state, payload) {
         state.auth = payload
     },
-    SET_ROLE(state, payload) {
-        state.role = payload
-    }
+    SET_LOGGED(state, payload) {
+        state.logged = payload
+    },
 }
 
 export default {

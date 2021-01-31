@@ -46,7 +46,7 @@
                                             type="password"
                                              v-model="form.password"
                                             ></v-text-field>
-                                            <v-btn @click="login" block>Login</v-btn>
+                                            <v-btn type="submit" @click="login" block>Login</v-btn>
                                         </v-form>
                                     </v-card-text>
                                     <v-card-actions>
@@ -69,16 +69,16 @@ export default {
         auth: false,
         form: {
             email: '', password: '', provider: ''
+        },
+        creds: {
+            role: 'teacher',
+            token: true
         }
     }),
     methods: {
         login() {
-            console.log(this.form)
+            console.log(this.form)  
             this.$store.dispatch('auth/Login', this.form)
-            // console.log('asdasda')
-            // this.auth = true
-            // localStorage.setItem('token', true)
-            // return window.location.href = '/teacher/dashboard'
         }
     }
 }

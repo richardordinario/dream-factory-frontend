@@ -23,7 +23,7 @@ const routes = [
         path: '/',
         redirect: '/dashboard',
         meta: {
-            middleware: [Middlewares.auth]
+            middleware: [Middlewares.teacher]
         }
     },
     {
@@ -31,18 +31,24 @@ const routes = [
         name: 'Dashboard',
         component: Dashboard,
         meta: {
-            middleware: [Middlewares.auth]
+            middleware: [Middlewares.teacher]
         }
     },
     {
         path: '/courses',
         name: 'My Courses',
         component: Subject,
+        meta: {
+            middleware: [Middlewares.teacher]
+        }
     },
     {
         path: '/students',
         name: 'My Students',
         component: Student,
+        meta: {
+            middleware: [Middlewares.teacher]
+        }
     },
 ]
 

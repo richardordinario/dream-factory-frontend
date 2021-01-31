@@ -1,5 +1,5 @@
 <template>
-    <v-app v-if="auth">
+    <v-app v-if="auth && logged">
         <v-app-bar 
         app
         color="white"
@@ -58,7 +58,14 @@
                 drawer: false,
                 mini: false,
                 auth: false,
-                role: 'teachers'
+                role: 'teachers',
+            }
+        },
+        computed: {
+            logged: {
+                get() {
+                    return this.$store.getters['auth/getLogged']
+                }
             }
         },
         mounted() {
